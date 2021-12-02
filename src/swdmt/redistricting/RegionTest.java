@@ -125,6 +125,7 @@ public class RegionTest {
         assertThat(4,is(region.size()));
         assertThat(4, is(region.numberOfVoters()));
         assertThat(regionLocation, is(region.locations()));
+        assertThat(regionVoter,is(region.voters()));
         }
 
 
