@@ -4,7 +4,10 @@ import static org.hamcrest.core.Is.is;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import java.util.*;
+import java.util.Set;
+import java.util.HashSet;
+import java.util.Collection;
+import java.util.TreeSet;
 
 /**
  * Tests for class Region.
@@ -65,8 +68,6 @@ public class RegionTest {
     public void squareRegionNonSquareSizeTest() {
         Region r = new Region(15);
     }
-    
-
 
     @Test(expected = IllegalArgumentException.class)
     public void squareRegionNonSquareSizeTestNum3() {
@@ -121,13 +122,11 @@ public class RegionTest {
         regionLocation.add(location3);
         regionLocation.add(location4);
         Region region = new Region(regionVoter);
-        assertThat(4,is(region.size()));
+        assertThat(4, is(region.size()));
         assertThat(4, is(region.numberOfVoters()));
         assertThat(regionLocation, is(region.locations()));
-        assertThat(regionVoter,is(region.voters()));
+        assertThat(regionVoter, is(region.voters()));
         }
-
-
 
     @Test(timeout = MAX_TIMEOUT)
     public void regionWithAllVotersInLocationSetTest() {
@@ -151,8 +150,8 @@ public class RegionTest {
 
     @Test(timeout = MAX_TIMEOUT)
     public void regionWithVoterNotInLocationSetTest() {
-        Location location3 = new Location(0,3);
-        Voter voter3 = new Voter(Party.NONE, new Location(0,2));
+        Location location3 = new Location(0, 3);
+        Voter voter3 = new Voter(Party.NONE, new Location(0, 2));
 
         Set<Location> locationSet = new HashSet<>();
         locationSet.add(location3);
