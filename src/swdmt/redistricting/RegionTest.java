@@ -4,7 +4,6 @@ import static org.hamcrest.core.Is.is;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
 import java.util.*;
 
 /**
@@ -103,8 +102,8 @@ public class RegionTest {
      */
     @Test(timeout = MAX_TIMEOUT)
     public void voterCollectionTest() {
-        Collection<Voter> regionVoter = new HashSet<Voter>();
-        Set<Location> regionLocation = new TreeSet<Location>();
+        Collection<Voter> regionVoter = new HashSet<>();
+        Set<Location> regionLocation = new TreeSet<>();
         Location location1 = new Location(0, 0);
         Location location2 = new Location(0, 1);
         Location location3 = new Location(1, 0);
@@ -125,6 +124,7 @@ public class RegionTest {
         assertThat(4,is(region.size()));
         assertThat(4, is(region.numberOfVoters()));
         assertThat(regionLocation, is(region.locations()));
+        assertThat(regionVoter,is(region.voters()));
         }
 
 
@@ -136,11 +136,11 @@ public class RegionTest {
         Voter voter1 = new Voter(Party.NONE, location1);
         Voter voter2 = new Voter(Party.PARTY0, location2);
 
-        Set<Location> locationSet = new HashSet<Location>();
+        Set<Location> locationSet = new HashSet<>();
         locationSet.add(location1);
         locationSet.add(location2);
 
-        Set<Voter> voterSet = new HashSet<Voter>();
+        Set<Voter> voterSet = new HashSet<>();
         voterSet.add(voter1);
         voterSet.add(voter2);
 
@@ -154,10 +154,10 @@ public class RegionTest {
         Location location3 = new Location(0,3);
         Voter voter3 = new Voter(Party.NONE, new Location(0,2));
 
-        Set<Location> locationSet = new HashSet<Location>();
+        Set<Location> locationSet = new HashSet<>();
         locationSet.add(location3);
 
-        Set<Voter> voterSet = new HashSet<Voter>();
+        Set<Voter> voterSet = new HashSet<>();
         voterSet.add(voter3);
 
         Region region = new Region(locationSet, voterSet);
